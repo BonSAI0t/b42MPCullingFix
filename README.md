@@ -23,34 +23,78 @@ This modification makes the server ignore those deletion requests while maintain
 ## Installation
 
 ### Prerequisites
-- Java JDK installed (for the `jar` command)
 - Access to your Project Zomboid server JAR file
 - Backup of your original `projectzomboid.jar`
+- **Either:** Java JDK installed (for `jar` command) **OR** 7-Zip/WinRAR (for GUI method)
 
-### Steps
+### Method 1: Using `jar` Command (Recommended)
+
+**Linux/macOS:**
 
 1. **Backup your original JAR file:**
    ```bash
    cp projectzomboid.jar projectzomboid.jar.backup
    ```
 
-2. **Navigate to this directory** (where the `zombie/` folder is located)
+2. **Navigate to this repository directory** (where the `zombie/` folder is located)
 
 3. **Update the JAR with the patched class:**
    ```bash
    jar uf /path/to/projectzomboid.jar zombie/network/packets/character/ZombieDeletePacket.class
    ```
 
-   Replace `/path/to/projectzomboid.jar` with the actual path to your server's JAR file.
-
 4. **Verify the patch was applied:**
    ```bash
    jar tf /path/to/projectzomboid.jar | grep "ZombieDeletePacket.class"
    ```
 
-   Expected output: `zombie/network/packets/character/ZombieDeletePacket.class`
-
 5. **Restart your server**
+
+**Windows:**
+
+1. **Backup your original JAR file:**
+   ```cmd
+   copy projectzomboid.jar projectzomboid.jar.backup
+   ```
+
+2. **Navigate to this repository directory** in Command Prompt or PowerShell
+
+3. **Update the JAR with the patched class:**
+   ```cmd
+   jar uf C:\path\to\projectzomboid.jar zombie\network\packets\character\ZombieDeletePacket.class
+   ```
+
+   Example for Steam installation:
+   ```cmd
+   jar uf "C:\Program Files (x86)\Steam\steamapps\common\ProjectZomboid\java\projectzomboid.jar" zombie\network\packets\character\ZombieDeletePacket.class
+   ```
+
+4. **Restart your server**
+
+### Method 2: Using 7-Zip or WinRAR (Windows)
+
+If you don't have Java JDK installed:
+
+1. **Backup your original JAR file**
+
+2. **Open the JAR file:**
+   - Right-click on `projectzomboid.jar`
+   - Select **7-Zip → Open archive** (or **Open with WinRAR**)
+
+3. **Navigate to:** `zombie\network\packets\character\`
+
+4. **Delete the existing class file:**
+   - Select `ZombieDeletePacket.class`
+   - Press Delete and confirm
+
+5. **Add the patched class file:**
+   - Drag and drop `ZombieDeletePacket.class` from this repository into the `character\` folder
+   - Confirm the replacement
+   - **IMPORTANT:** Ensure the path is `zombie\network\packets\character\ZombieDeletePacket.class`
+
+6. **Close the archive** (changes save automatically)
+
+7. **Restart your server**
 
 ---
 
