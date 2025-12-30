@@ -14,9 +14,9 @@ This modification disables client-initiated zombie deletion in Project Zomboid B
 
 ### Background
 
-In vanilla Project Zomboid, clients automatically send requests to delete distant zombies as part of the game's zombie count optimization system (`ZombieCountOptimiser`). This is a designed game mechanic to maintain performance by culling zombies that are far from players.
+In vanilla Project Zomboid, clients automatically send requests to zombies you can't see as part of the game's zombie count optimization system (`ZombieCountOptimiser`). This is a designed game mechanic intended to maintain performance by culling zombies that are far from players.
 
-This modification makes the server ignore those deletion requests while maintaining full network protocol compatibility.
+This modification makes the server ignore those deletion requests.
 
 ---
 
@@ -24,9 +24,14 @@ This modification makes the server ignore those deletion requests while maintain
 
 ### Prerequisites
 - Access to your Project Zomboid server JAR file
+Example:
+pzserver@bon-test-zom-svr01:~/serverfiles/java$ ls
+projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
+
 - Backup of your original `projectzomboid.jar`
 - **Either:** Java JDK installed (for `jar` command) **OR** 7-Zip/WinRAR (for GUI method)
 
+**If you don't know what you're doing - use the 7-Zip/WinRAR method
 ### Method 1: Using `jar` Command (Recommended)
 
 **Linux/macOS:**
@@ -36,7 +41,7 @@ This modification makes the server ignore those deletion requests while maintain
    cp projectzomboid.jar projectzomboid.jar.backup
    ```
 
-2. **Navigate to this repository directory** (where the `zombie/` folder is located)
+2. **Navigate to this repository directory** (where the `/java` folder is located)
 
 3. **Update the JAR with the patched class:**
    ```bash
@@ -100,7 +105,7 @@ If you don't have Java JDK installed:
 
 ## What Changed
 
-The `ZombieDeletePacket` class was modified to make the server ignore zombie deletion requests while maintaining protocol compatibility. The server will still properly consume and acknowledge the packets, preventing any network errors or desyncs.
+The `ZombieDeletePacket` class was modified to make the server ignore zombie deletion requests. The server will still properly consume and acknowledge the packets, preventing any network errors or desyncs.
 
 ---
 
