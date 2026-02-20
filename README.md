@@ -1,5 +1,10 @@
 # Project Zomboid Build 42 Multiplayer Culling Fix
 
+### ⚠️⚠️⚠️ EXTRA DOUBLE WARNING ⚠️⚠️⚠️
+Not compatible / updated for b42.14.0
+Will freeze your server
+Currently dealing with a situation at work, don't even have my gaming PC setup right now. Will look for someone to carry the torch / patch it, hopefully should be a simple patch.
+
 ## ⚠️ WARNING ⚠️
 
 **Use this at your own peril. DO NOT REPORT BUGS IF YOU CANNOT REPLICATE THEM WITHOUT THIS MOD**
