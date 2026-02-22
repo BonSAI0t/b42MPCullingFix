@@ -5,6 +5,8 @@ Not compatible / updated for b42.14.0
 Will freeze your server
 Currently dealing with a situation at work, don't even have my gaming PC setup right now. Will look for someone to carry the torch / patch it, hopefully should be a simple patch.
 
+Check the issue page for updates - currently testing new version
+
 ## ⚠️ WARNING ⚠️
 
 **Use this at your own peril. DO NOT REPORT BUGS IF YOU CANNOT REPLICATE THEM WITHOUT THIS MOD**
