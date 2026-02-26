@@ -12,11 +12,11 @@ This modification changes core game networking behavior. Any issues you encounte
 
 ### Background
 
-In Project Zomboid, clients automatically send requests to delete the zombies you can't see as part of the zombie count optimization system (`ZombieCountOptimiser`) which is a performance measure to cull the zombies that are far away from the player, but if there's too many zombies it also deletes the zombies right behind the player.
+In Project Zomboid, clients automatically send requests to delete the zombies you can't see as part of the zombie count optimization system (`ZombieCountOptimiser`) which is a performance measure to cull the zombies that are far away from the player, but if there's too many zombies it also deletes the zombies right behind the player
 
 ## What This Mod Does
 
-- Makes the server ignore the zombie deletion requests. The server will still properly consume and acknowledge the packets, preventing any network errors or desyncs.
+- Makes the server ignore the zombie deletion requests. The server will still properly consume and acknowledge the packets, preventing any network errors or desyncs
 - No client modifications required
 - Achieved by commenting out a couple of lines within the `ZombieDeletePacket` class which are responsible for zombie deletion 
 
@@ -41,7 +41,7 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
     cp projectzomboid.jar projectzomboid.jar.backup
     ```
 
-2. **Clone this repo and navigate to the directory** (change the VERSION to the version of your server)
+2. **Clone this repo and navigate to the directory** (change VERSION to the version of your server)
     ```bash
     git clone https://github.com/BonSAI0t/b42MPCullingFix && cd b42MPCullingFix/VERSION
     ```
@@ -60,7 +60,7 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
     copy projectzomboid.jar projectzomboid.jar.backup
     ```
 
-2. Clone this repo and navigate to the directory (change the VERSION to the version of your server)
+2. Clone this repo and navigate to the directory (change VERSION to the version of your server)
     ```cmd
     git clone https://github.com/BonSAI0t/b42MPCullingFix && cd b42MPCullingFix\VERSION
     ```
@@ -83,15 +83,13 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
 
 2. Right-click on** `projectzomboid.jar` and open with **7-Zip** or **WinRAR**
 
-3. Navigate to: `zombie\network\packets\character\` and delete `ZombieDeletePacket.class`
+3. Navigate to: `zombie\network\packets\character\` and delete `ZombieDeletePacket.class`replicate
 
-5. Drag and drop `ZombieDeletePacket.class` of the correct version in place of the deleted file
+5. Drag and drop `ZombieDeletePacket.class` from the directory which matches the version of your server in place of the deleted file (if matching version is not available try the closest one or wait until it is supported)
 
 6. Close the archive (changes save automatically)
 
 7. Restart your server
-
-**If the correct version is not present, try the closest version**
 
 ## Reverting
 
