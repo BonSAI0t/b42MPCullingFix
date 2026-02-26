@@ -1,11 +1,7 @@
 # Project Zomboid Build 42 Multiplayer Culling Fix
 
 ### ⚠️⚠️⚠️ EXTRA DOUBLE WARNING ⚠️⚠️⚠️
-Not compatible / updated for b42.14.0
-Will freeze your server
-Currently dealing with a situation at work, don't even have my gaming PC setup right now. Will look for someone to carry the torch / patch it, hopefully should be a simple patch.
-
-Check the issue page for updates - currently testing new version
+Use the ZombieDeletePacket.class from the root folder for latest patch (b42.14.1), but put it in the right file path
 
 ## ⚠️ WARNING ⚠️
 
