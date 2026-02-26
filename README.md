@@ -29,6 +29,7 @@ In Project Zomboid, clients automatically send requests to delete the zombies yo
 Example:
 pzserver@bon-test-zom-svr01:~/serverfiles/java$ ls
 projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
+
 **If you are not familiar with bash or cmd - use the Method 2**
 
 ### Method 1: Using `jar` Command (Requires Java JDK installed)
