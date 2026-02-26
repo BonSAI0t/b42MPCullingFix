@@ -3,7 +3,8 @@
 ## ⚠️ WARNING ⚠️
 
 Use this at your own peril. 
-**DO NOT REPORT BUGS TO THE INDIE STONES IF YOU CANNOT REPLICATE THEM WITHOUT THIS MOD**
+
+**DO NOT REPORT BUGS TO THE INDIE STONE IF YOU CANNOT REPLICATE THEM WITHOUT THIS MOD**
 
 This modification changes core game networking behavior. Any issues you encounter may be caused by this modification and should not be reported to the developers unless you can reproduce them on an unmodified server.
 
@@ -43,7 +44,7 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
     cp projectzomboid.jar projectzomboid.jar.backup
     ```
 
-2. **Clone this repo and navigate to the directory of the correct version**
+2. **Clone this repo and navigate to the directory** (change the VERSION to the version of your server)
     ```bash
     git clone https://github.com/BonSAI0t/b42MPCullingFix && cd b42MPCullingFix/VERSION
     ```
@@ -62,7 +63,7 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
     copy projectzomboid.jar projectzomboid.jar.backup
     ```
 
-2. **Clone this repo and navigate to the directory of the correct version**
+2. **Clone this repo and navigate to the directory** (change the VERSION to the version of your server)
     ```cmd
     git clone https://github.com/BonSAI0t/b42MPCullingFix && cd b42MPCullingFix\VERSION
     ```
