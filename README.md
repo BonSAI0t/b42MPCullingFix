@@ -1,25 +1,23 @@
 # Project Zomboid Build 42 Multiplayer Culling Fix
 
-### ⚠️⚠️⚠️ EXTRA DOUBLE WARNING ⚠️⚠️⚠️
-Use the ZombieDeletePacket.class from the root folder for latest patch (b42.14.1), but put it in the right file path
-
 ## ⚠️ WARNING ⚠️
 
-**Use this at your own peril. DO NOT REPORT BUGS IF YOU CANNOT REPLICATE THEM WITHOUT THIS MOD**
+Use this at your own peril. 
+**DO NOT REPORT BUGS TO THE INDIE STONES IF YOU CANNOT REPLICATE THEM WITHOUT THIS MOD**
 
 This modification changes core game networking behavior. Any issues you encounter may be caused by this modification and should not be reported to the developers unless you can reproduce them on an unmodified server.
 
 ---
 
-## What This Does
-
-This modification disables client-initiated zombie deletion in Project Zomboid Build 42 multiplayer servers.
-
 ### Background
 
-In vanilla Project Zomboid, clients automatically send requests to zombies you can't see as part of the game's zombie count optimization system (`ZombieCountOptimiser`). This is a designed game mechanic intended to maintain performance by culling zombies that are far from players.
+In Project Zomboid, clients automatically send requests to delete the zombies you can't see as part of the game's zombie count optimization system (`ZombieCountOptimiser`) which is a performance measure to cull the zombies that are far away from the player. But it also deletes the zombies right behind the player if there is too many zombies in the cell.
 
-This modification makes the server ignore those deletion requests.
+## What This Does
+
+- Makes the server ignore the zombie deletion requests. The server will still properly consume and acknowledge the packets, preventing any network errors or desyncs.
+- No client modifications required
+- Achieved by commenting out the loop within the `ZombieDeletePacket` class which deletes zombies 
 
 ---
 
@@ -35,101 +33,83 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
 - **Either:** Java JDK installed (for `jar` command) **OR** 7-Zip/WinRAR (for GUI method)
 
 **If you don't know what you're doing - use the 7-Zip/WinRAR method
+
 ### Method 1: Using `jar` Command (Recommended)
 
 **Linux/macOS:**
 
 1. **Backup your original JAR file:**
-   ```bash
-   cp projectzomboid.jar projectzomboid.jar.backup
-   ```
+    ```bash
+    cp projectzomboid.jar projectzomboid.jar.backup
+    ```
 
-2. **Navigate to this repository directory** (where the `/java` folder is located)
+2. **Clone this repo and navigate to the directory of the correct version**
+    ```bash
+    git clone https://github.com/BonSAI0t/b42MPCullingFix && cd b42MPCullingFix/VERSION
+    ```
 
 3. **Update the JAR with the patched class:**
-   ```bash
-   jar uf /path/to/projectzomboid.jar zombie/network/packets/character/ZombieDeletePacket.class
-   ```
+    ```bash
+    jar uf /path/to/projectzomboid.jar zombie/network/packets/character/ZombieDeletePacket.class
+    ```
 
-4. **Verify the patch was applied:**
-   ```bash
-   jar tf /path/to/projectzomboid.jar | grep "ZombieDeletePacket.class"
-   ```
-
-5. **Restart your server**
+4. **Restart your server**
 
 **Windows:**
 
 1. **Backup your original JAR file:**
-   ```cmd
-   copy projectzomboid.jar projectzomboid.jar.backup
-   ```
+    ```cmd
+    copy projectzomboid.jar projectzomboid.jar.backup
+    ```
 
-2. **Navigate to this repository directory** in Command Prompt or PowerShell
+2. **Clone this repo and navigate to the directory of the correct version**
+    ```cmd
+    git clone https://github.com/BonSAI0t/b42MPCullingFix && cd b42MPCullingFix\VERSION
+    ```
 
 3. **Update the JAR with the patched class:**
-   ```cmd
-   jar uf C:\path\to\projectzomboid.jar zombie\network\packets\character\ZombieDeletePacket.class
-   ```
+    ```cmd
+    jar uf C:\path\to\projectzomboid.jar zombie\network\packets\character\ZombieDeletePacket.class
+    ```
 
-   Example for Steam installation:
-   ```cmd
-   jar uf "C:\Program Files (x86)\Steam\steamapps\common\ProjectZomboid\java\projectzomboid.jar" zombie\network\packets\character\ZombieDeletePacket.class
-   ```
+    Example for Steam installation:
+    ```cmd
+    jar uf "C:\Program Files (x86)\Steam\steamapps\common\ProjectZomboid\java\projectzomboid.jar" zombie\network\packets\character\ZombieDeletePacket.class
+    ```
 
 4. **Restart your server**
 
-### Method 2: Using 7-Zip or WinRAR (Windows)
-
-If you don't have Java JDK installed:
+### Method 2: Using 7-Zip or WinRAR
 
 1. **Backup your original JAR file**
 
-2. **Open the JAR file:**
-   - Right-click on `projectzomboid.jar`
-   - Select **7-Zip → Open archive** (or **Open with WinRAR**)
+2. **Right-click on** `projectzomboid.jar` **and open with 7-Zip or Winrar**
 
-3. **Navigate to:** `zombie\network\packets\character\`
+3. **Navigate to:** `zombie\network\packets\character\` **and delete** `ZombieDeletePacket.class`
 
-4. **Delete the existing class file:**
-   - Select `ZombieDeletePacket.class`
-   - Press Delete and confirm
-
-5. **Add the patched class file:**
-   - Drag and drop `ZombieDeletePacket.class` from this repository into the `character\` folder
-   - Confirm the replacement
-   - **IMPORTANT:** Ensure the path is `zombie\network\packets\character\ZombieDeletePacket.class`
+5. **Drag and drop** `ZombieDeletePacket.class` **of the correct version in place of the deleted file**
 
 6. **Close the archive** (changes save automatically)
 
 7. **Restart your server**
 
----
-
-## What Changed
-
-The `ZombieDeletePacket` class was modified to make the server ignore zombie deletion requests. The server will still properly consume and acknowledge the packets, preventing any network errors or desyncs.
-
----
+**If the correct version is not present, try the closest version**
 
 ## Reverting
 
 To revert this modification, simply restore your backup:
 
+**Linux/macOS:**
 ```bash
-cp projectzomboid.jar.backup projectzomboid.jar
+mv projectzomboid.jar.backup projectzomboid.jar
+```
+
+**Windows:**
+```cmd
+move projectzomboid.jar.backup projectzomboid.jar
 ```
 
 Then restart your server.
-
----
-
-## Technical Details
-
-- **Modified Class:** `zombie.network.packets.character.ZombieDeletePacket`
-- **Server-side only:** No client modifications required
-- **Network compatible:** Works with vanilla clients
-- **Game Version:** Build 42
 
 ---
 
