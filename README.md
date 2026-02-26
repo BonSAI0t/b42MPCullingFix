@@ -6,19 +6,19 @@ Use this at your own peril.
 
 **DO NOT REPORT BUGS TO THE INDIE STONE IF YOU CANNOT REPLICATE THEM WITHOUT THIS MOD**
 
-This modification changes core game networking behavior. Any issues you encounter may be caused by this modification and should not be reported to the developers unless you can reproduce them on an unmodified server.
+This modification changes core game networking behavior. Any issues you encounter may be caused by this modification and should not be reported to developers of the game unless you can reproduce them on an unmodified server.
 
 ---
 
 ### Background
 
-In Project Zomboid, clients automatically send requests to delete the zombies you can't see as part of the game's zombie count optimization system (`ZombieCountOptimiser`) which is a performance measure to cull the zombies that are far away from the player. But it also deletes the zombies right behind the player if there is too many zombies in the cell.
+In Project Zomboid, clients automatically send requests to delete the zombies you can't see as part of the zombie count optimization system (`ZombieCountOptimiser`) which is a performance measure to cull the zombies that are far away from the player, but if there's too many zombies it also deletes the zombies right behind the player.
 
-## What This Does
+## What This Mod Does
 
 - Makes the server ignore the zombie deletion requests. The server will still properly consume and acknowledge the packets, preventing any network errors or desyncs.
 - No client modifications required
-- Achieved by commenting out the loop within the `ZombieDeletePacket` class which deletes zombies 
+- Achieved by commenting out a couple of lines within the `ZombieDeletePacket` class which are responsible for zombie deletion 
 
 ---
 
