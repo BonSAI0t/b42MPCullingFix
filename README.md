@@ -58,17 +58,17 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
 
 **Windows:**
 
-1. **Backup your original JAR file:**
+1. Backup your original JAR file:
     ```cmd
     copy projectzomboid.jar projectzomboid.jar.backup
     ```
 
-2. **Clone this repo and navigate to the directory** (change the VERSION to the version of your server)
+2. Clone this repo and navigate to the directory (change the VERSION to the version of your server)
     ```cmd
     git clone https://github.com/BonSAI0t/b42MPCullingFix && cd b42MPCullingFix\VERSION
     ```
 
-3. **Update the JAR with the patched class:**
+3. Update the JAR with the patched class:
     ```cmd
     jar uf C:\path\to\projectzomboid.jar zombie\network\packets\character\ZombieDeletePacket.class
     ```
@@ -82,17 +82,17 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
 
 ### Method 2: Using 7-Zip or WinRAR
 
-1. **Backup your original JAR file**
+1. Backup your original JAR file
 
-2. **Right-click on** `projectzomboid.jar` **and open with 7-Zip or Winrar**
+2. Right-click on** `projectzomboid.jar` and open with **7-Zip** or **WinRAR**
 
-3. **Navigate to:** `zombie\network\packets\character\` **and delete** `ZombieDeletePacket.class`
+3. Navigate to: `zombie\network\packets\character\` and delete `ZombieDeletePacket.class`
 
-5. **Drag and drop** `ZombieDeletePacket.class` **of the correct version in place of the deleted file**
+5. Drag and drop `ZombieDeletePacket.class` of the correct version in place of the deleted file
 
-6. **Close the archive** (changes save automatically)
+6. Close the archive (changes save automatically)
 
-7. **Restart your server**
+7. Restart your server
 
 **If the correct version is not present, try the closest version**
 
