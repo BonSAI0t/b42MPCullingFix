@@ -47,7 +47,8 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
     ```
 
 3. **Update the JAR with the patched class:**
-    42.19:
+
+   42.19:
     ```bash
     jar uf /path/to/projectzomboid.jar zombie/popman/ZombieCountOptimiser.class
     ```
@@ -56,7 +57,7 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
     jar uf /path/to/projectzomboid.jar zombie/network/packets/character/ZombieDeletePacket.class
     ```
 
-4. **Restart your server**
+5. **Restart your server**
 
 **Windows:**
 
@@ -71,6 +72,7 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
     ```
 
 3. Update the JAR with the patched class:
+
     42.19:
     ```cmd
     jar uf C:\path\to\projectzomboid.jar zombie\popman\ZombieCountOptimiser.class
@@ -85,7 +87,7 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
     jar uf "C:\Program Files (x86)\Steam\steamapps\common\ProjectZomboid\java\projectzomboid.jar" zombie\network\packets\character\ZombieDeletePacket.class
     ```
 
-4. **Restart your server**
+5. **Restart your server**
 
 ### Method 2: Using 7-Zip or WinRAR
 
@@ -94,7 +96,9 @@ projectzomboid.jar  serialize.lua  stdlib.lbc  stdlib.lua
 2. Right-click on** `projectzomboid.jar` and open with **7-Zip** or **WinRAR**
 
 3. Navigate to: 
+
     42.19: `zombie\popman` and delete `ZombieCountOptimiser.class` replicate
+
     Older versions: `zombie\network\packets\character\` and delete `ZombieDeletePacket.class` replicate
 
 5. Drag and drop `ZombieCountOptimiser.class` (older versions: `ZombieDeletePacket.class`) from the directory which matches the version of your server in place of the deleted file (if matching version is not available try the closest one or wait until it is supported)
